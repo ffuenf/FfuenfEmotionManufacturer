@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="ffuenf_emotion_manufacturer.emotion" class="Shopware\Components\Emotion\EmotionComponentViewSubscriber">
+            <argument>%ffuenf_emotion_manufacturer.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber" />
+        </service>
+        <service id="ffuenf_emotion_manufacturer.frontend" class="FfuenfEmotionManufacturer\Subscriber\Frontend">
+            <argument type="string">%ffuenf_emotion_manufacturer.plugin_name%</argument>
+            <argument type="string">%ffuenf_emotion_manufacturer.plugin_dir%</argument>
+            <argument type="string">%ffuenf_emotion_manufacturer.view_dir%</argument>
+            <argument type="service" id="service_container" />
+            <tag name="shopware.event_subscriber" />
+        </service>
+        <service id="ffuenf_emotion_manufacturer.backend" class="FfuenfEmotionManufacturer\Subscriber\Backend">
+            <argument type="string">%ffuenf_emotion_manufacturer.plugin_name%</argument>
+            <argument type="string">%ffuenf_emotion_manufacturer.plugin_dir%</argument>
+            <argument type="string">%ffuenf_emotion_manufacturer.view_dir%</argument>
+            <argument type="service" id="service_container" />
+            <tag name="shopware.event_subscriber" />
+        </service>
+    </services>
+</container>
