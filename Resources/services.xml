@@ -7,6 +7,12 @@
             <argument>%ffuenf_emotion_manufacturer.plugin_dir%</argument>
             <tag name="shopware.event_subscriber" />
         </service>
+        <service id="ffuenf_emotion_manufacturer.emotion.preset_manufacturer_component_handler" class="FfuenfEmotionManufacturer\Components\Emotion\Preset\ComponentHandler\FfuenfEmotionManufacturer">
+            <argument type="service" id="shopware.api.media"/>
+            <argument type="service" id="shopware_media.media_service"/>
+            <argument type="service" id="service_container"/>
+            <tag name="shopware.emotion.preset_component_handler"/>
+        </service>
         <service id="ffuenf_emotion_manufacturer.frontend" class="FfuenfEmotionManufacturer\Subscriber\Frontend">
             <argument type="string">%ffuenf_emotion_manufacturer.plugin_name%</argument>
             <argument type="string">%ffuenf_emotion_manufacturer.plugin_dir%</argument>

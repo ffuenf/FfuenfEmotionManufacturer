@@ -16,6 +16,7 @@ use Enlight\Event\SubscriberInterface;
 use FfuenfCommon\Service\AbstractService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Shopware\Components\Theme\LessDefinition;
+use Doctrine\Common\Collections\ArrayCollection;
 use Enlight_Event_EventArgs;
 
 class Frontend extends AbstractService implements SubscriberInterface
@@ -24,7 +25,8 @@ class Frontend extends AbstractService implements SubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'Shopware_Controllers_Widgets_Emotion_AddElement' => 'onEmotionAddElement'
+            'Shopware_Controllers_Widgets_Emotion_AddElement'  => 'onEmotionAddElement',
+            'Theme_Compiler_Collect_Plugin_Less'               => 'onCollectPluginLess'
         ];
     }
 
@@ -35,13 +37,17 @@ class Frontend extends AbstractService implements SubscriberInterface
             return;
         }
         $data = $args->getReturn();
-        $data['headlineClickable'] = $this->config['headlineClickable'];
         $data['showHeader'] = (bool)$data['show_header'];
+        $data['headerLinkCategory'] = (bool)$data['header_link_category'];
+        $data['headerLinkCustom'] = (bool)$data['header_link_custom'];
         $categoryId = $data['category_id'];
         $data['category'] = Shopware()->Modules()->Categories()->sGetCategoryContent($categoryId);
-
         if ($data['show_header'] && !empty($data['header'])) {
-            $data['header'] = $data['header'];
+            if ($data['headerLinkCategory']) {
+                $data['header'] = $data['category']['description'];
+            } else {
+                $data['header'] = $data['header'];
+            }
         } else {
             $data['header'] = '';
         }
@@ -166,4 +172,16 @@ class Frontend extends AbstractService implements SubscriberInterface
         $data['manufacturers'] = $ret;
         $args->setReturn($data);
     }
+
+    
+    public function onCollectPluginLess(\Enlight_Event_EventArgs $args) 
+    {
+        $less = new \Shopware\Components\Theme\LessDefinition(
+            array(),
+            [ $this->viewDirectory . '/frontend/_public/src/less/all.less'],
+            $this->pluginDirectory
+        ); 
+        return new ArrayCollection(array($less));
+    }
+
 }

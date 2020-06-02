@@ -113,7 +113,16 @@ class FfuenfEmotionManufacturer extends \Shopware\Components\Plugin
             'xtype'       => 'emotion-components-ffuenf-emotion-manufacturer',
             'template'    => 'ffuenf_emotion_manufacturer',
             'cls'         => 'ffuenf-emotion-manufacturer',
-            'description' => 'Herstellerliste esogjnbosigpeosr'
+            'description' => 'Herstellerliste'
+        ]);
+        $component->createComboBoxField([
+            'name'         => 'style',
+            'fieldLabel'   => 'Style',
+            'store'        => 'Shopware.apps.Emotion.store.FfuenfEmotionManufacturerStyles',
+            'queryMode'    => 'local',
+            'displayField' => 'name',
+            'valueField'   => 'id',
+            'allowBlank'   => true
         ]);
         $component->createCheckboxField([
             'name'         => 'show_header',
@@ -123,6 +132,16 @@ class FfuenfEmotionManufacturer extends \Shopware\Components\Plugin
         $component->createTextField([
             'name'        => 'header',
             'fieldLabel'  => 'Überschrift',
+            'allowBlank'  => true
+        ]);
+        $component->createCheckboxField([
+            'name'         => 'header_link_category',
+            'fieldLabel'   => 'Überschrift verlinkt auf Kategorie?',
+            'defaultValue' => true
+        ]);
+        $component->createTextField([
+            'name'        => 'header_link_custom',
+            'fieldLabel'  => 'Eigener Überschrift-Link',
             'allowBlank'  => true
         ]);
         $component->createNumberField([
@@ -143,7 +162,7 @@ class FfuenfEmotionManufacturer extends \Shopware\Components\Plugin
         ]);
         $component->createNumberField([
             'name'         => 'record_limit',
-            'fieldLabel'   => 'Anzahl der angezegten Hersteller.',
+            'fieldLabel'   => 'Anzahl der angezeigten Hersteller.',
             'defaultValue' => 30,
             'allowBlank'   => false
         ]);
