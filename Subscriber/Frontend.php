@@ -42,7 +42,7 @@ class Frontend extends AbstractService implements SubscriberInterface
         $data['headerLinkCustom'] = (bool)$data['header_link_custom'];
         $categoryId = $data['category_id'];
         $data['category'] = Shopware()->Modules()->Categories()->sGetCategoryContent($categoryId);
-        if ($data['show_header'] && !empty($data['header'])) {
+        if ($data['show_header'] && $data['header'] != '') {
             if ($data['headerLinkCategory']) {
                 $data['header'] = $data['category']['description'];
             } else {

@@ -3,7 +3,7 @@
         <ul class="menu--list menu--level-0" style="width: 100%;">
             <li class="menu--list-item item--level-0" style="width: 100%;">
                 {if $Data.showHeader}
-                    {if $Data.headlineClickable && $Data.landingpageLink != ''}
+                    {if $Data.landingpageLink != ''}
                         <a class="menu--list-item-link" href="{$Data.landingpageLink}" title="{$Data.landingpageTitle}" itemprop="url" aria-label="{$Data.landingpageTitle}">{$Data.header}</a>
                     {else}
                         <span class="menu--list-item-link">{$Data.header}</span>

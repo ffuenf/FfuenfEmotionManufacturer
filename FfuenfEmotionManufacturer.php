@@ -134,16 +134,6 @@ class FfuenfEmotionManufacturer extends \Shopware\Components\Plugin
             'fieldLabel'  => 'Überschrift',
             'allowBlank'  => true
         ]);
-        $component->createCheckboxField([
-            'name'         => 'header_link_category',
-            'fieldLabel'   => 'Überschrift verlinkt auf Kategorie?',
-            'defaultValue' => true
-        ]);
-        $component->createTextField([
-            'name'        => 'header_link_custom',
-            'fieldLabel'  => 'Eigener Überschrift-Link',
-            'allowBlank'  => true
-        ]);
         $component->createNumberField([
             'name'        => 'category_id',
             'fieldLabel'  => 'Kategorie ID',
