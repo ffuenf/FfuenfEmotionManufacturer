@@ -17,7 +17,11 @@ Ext.define('Shopware.apps.Emotion.store.FfuenfEmotionManufacturerStyles', {
         },
         {
             id: 2,
-            name: "Landingpage"
+            name: "Bilder"
+        },
+        {
+            id: 2,
+            name: "Index"
         }
     ]
 });

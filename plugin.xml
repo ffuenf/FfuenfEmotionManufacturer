@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label>Emotion Manufacturer (FfuenfEmotionManufacturer)</label>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <copyright>(c) by Achim Rosenhagen / ffuenf - Pra &amp; Rosenhagen GbR</copyright>
     <license>MIT</license>
     <link>https://www.ffuenf.de</link>
@@ -10,6 +10,14 @@
     <requiredPlugins>
         <requiredPlugin pluginName="FfuenfCommon" minVersion="1.0.0"/>
     </requiredPlugins>
+    <changelog version="1.1.1">
+        <changes lang="en">
+            add index style
+        </changes>
+        <changes lang="de">
+            Style für Index (A-Z) hinzugefügt
+        </changes>
+    </changelog>
     <changelog version="1.1.0">
         <changes lang="en">
             add landingpage style

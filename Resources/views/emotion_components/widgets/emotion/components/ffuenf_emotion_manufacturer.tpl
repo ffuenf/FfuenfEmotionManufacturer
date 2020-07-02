@@ -37,4 +37,11 @@
             {/foreach}
         </ul>
     {/if}
+    {if $Data.style == 3}
+        <ol class="ffuenf-emotion-manufacturer-list">
+            {foreach $Data.manufacturers as $sManufacturer}
+                <li class="initial-{$sManufacturer.name|lower|substr:0:1}"><a href="{$sManufacturer.url}" title="{$sManufacturer.name}">{$sManufacturer.name}</a></li>
+            {/foreach}
+        </ol>
+    {/if}
 {/block}
