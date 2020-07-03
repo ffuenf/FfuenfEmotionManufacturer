@@ -20,7 +20,7 @@ Ext.define('Shopware.apps.Emotion.store.FfuenfEmotionManufacturerStyles', {
             name: "Bilder"
         },
         {
-            id: 2,
+            id: 3,
             name: "Index"
         }
     ]
