@@ -38,6 +38,15 @@
         </ul>
     {/if}
     {if $Data.style == 3}
+        {if $Data.showHeader}
+            <div class="ffuenf-emotion-manufacturer-list-headline-wrapper">
+                {if $Data.landingpageLink != ''}
+                    <{$Data.header_type|lower}><a class="menu--list-item-link" href="{$Data.landingpageLink}" title="{$Data.landingpageTitle}" itemprop="url" aria-label="{$Data.landingpageTitle}">{$Data.header}</a></{$Data.header_type|lower}>
+                {else}
+                    <{$Data.header_type|lower}>{$Data.header}</{$Data.header_type|lower}>
+                {/if}
+            </div>
+        {/if}
         <ol class="ffuenf-emotion-manufacturer-list">
             {foreach $Data.manufacturers as $sManufacturer}
                 <li class="initial-{$sManufacturer.name|lower|substr:0:1}"><a href="{$sManufacturer.url}" title="{$sManufacturer.name}">{$sManufacturer.name}</a></li>

@@ -129,6 +129,16 @@ class FfuenfEmotionManufacturer extends \Shopware\Components\Plugin
             'fieldLabel'   => 'Zeige Überschrift',
             'defaultValue' => true
         ]);
+        $component->createComboBoxField([
+            'name'         => 'header_type',
+            'fieldLabel'   => 'Überschriften-Typ',
+            'store'        => 'Shopware.apps.Emotion.store.FfuenfEmotionManufacturerHeaderType',
+            'queryMode'    => 'local',
+            'displayField' => 'name',
+            'valueField'   => 'name',
+            'defaultValue' => 'H1',
+            'allowBlank'   => false
+        ]);
         $component->createTextField([
             'name'        => 'header',
             'fieldLabel'  => 'Überschrift',

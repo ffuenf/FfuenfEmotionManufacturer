@@ -3,6 +3,10 @@
 This file is used to list changes made in each version of FfuenfEmotionManufacturer.
 
 
+## 1.1.2 (July 06, 2020)
+
+* add header type to index style
+
 ## 1.1.1 (July 02, 2020)
 
 * add index style
