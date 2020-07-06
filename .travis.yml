@@ -1,15 +1,19 @@
+dist: bionic
 language: php
 sudo: false
+services:
+  - mysql
+  - redis
 cache:
   apt: true
   directories:
   - "$HOME/.composer/cache"
   - "$HOME/.cache/bin"
 php:
-- 7.0
 - 7.1
 - 7.2
 - 7.3
+- 7.4
 matrix:
   fast_finish: true
 env:
@@ -38,3 +42,8 @@ deploy:
   on:
     branch: master
     tags: true
+  api_key:
+    secure: 5qJS0NPvyGyCVUoigAM+RzzDJA5FOXtpP5rdrOMCAf+KToZrmRTidqwElr2Joj3iC3ui0dZHJb4sAhXTT+oVNpnqcF8kzkx1AnSbNwPQ8Kcg+f8MmNUDg5mBiifpzAY2sPYO4d1SNdNqjpKfe+0cJEVr317Rm00tspNAVgv/wgth9VMT0XO3Sz6DJxJlS95V63SDbGYSB6LNXShd49nuoe+i5JuSm5V4o5yttN8M6YNSM/YO0jGC8ts6uSz55sQD2NBcfjHVJCzRNgAc6Z0L1wnheeAHA8Du+wyxZUQ0K0ELVehaikALphX6BBDmwfiiDkHMjaqEgiJnK2FynQFKPxI3rEdC+DsniKXC7i2S3CTtTLWZ6dlJYdfWHirKpGLijHe7vEZt5I4bOyyvVWVQMtiUNDTvkjz/qlT3V3byq3+xz+wcXj0oq4RCI6m/e8Oycfu854pamuIZJF3VUaAh9fCQ+qmE7W1C50vB8qmhZ+e79uh2wcOsnjvoICKwKTFtSPl5tOVPxYTLGCHbaDeySLvmPClgzFpUku1ihqM2WS/0GSiC3zpkwaDKIfZk353h/QZ0v5XOCnfv+/VQ+5pwRTwuii1P62kuHBRMWCzfhbORuIu6OAWUggd8+ByQyxeOPaHsd5j9bBFMAbBKJ25nmJw22sUKBsJgJaO9BjOuZ68=
+notifications:
+  slack:
+    secure: JrO0EqiFrUiBYk0r5ewWKEDFgtKX57diKyD0DdJjkMV6rxX/CxcCxxIOj8biyaIm/5Tx/zPXLPl+f1yf0tzuA1hQgw7KgkBmSICTwVuR029Ix7XQZUZ/qwO74AEtp8dGd7HpWjozpqqks+geDf+ZXvFGTe6UzmwKMZWHGT/+RvPVk+q3Ova9qI6GCgd9IrMqm2atbYyojWtFho0MoAyzxvvGad5wgUSVzv/etCqKGy7AbAYQQosQDF9NbgFImZKwsOeaZwk2d+aO33JV4iVMHnu/J9l/ikkn2zgzlXLZPR+KhZltDsQKKbObdJECE21QfHixhQUCXR2REOAopu5VyF2WJE1hbMvPZs1jU6WK5IMSyX3mXV56aIC+aIZ/3lhvwIQ6c4BbzdjrIR3ivZfckSfntuXi7JpdPVZXQyCD+YiZWGeP8THC2B/gsCLboKrs7GafFiirnTvydj3JwT/SrfECQfkjVii2XQJDsBhSuCzuGYQ5TDy4i5u2EsCiId53+OEmSR5jCar7LJjbUoGdmbamReMbsxhtfs9ohc840u2aL4xOJ4XHxZr1Ay5TnczJ+DqZ6I805shgSRwQ9GBujrj/g/ZfnFFhaqhyhHW8C1t7mxiASJtXSkYp/rC14ZubmcrpG3SbtRJ5kYsWpVbXzi33T6/YV9iqv1FTstn9OsY=
