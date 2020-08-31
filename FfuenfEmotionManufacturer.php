@@ -144,6 +144,21 @@ class FfuenfEmotionManufacturer extends \Shopware\Components\Plugin
             'fieldLabel'  => 'Überschrift',
             'allowBlank'  => true
         ]);
+        $component->createComboBoxField([
+            'name'         => 'subheader_type',
+            'fieldLabel'   => 'Unter-Überschriften-Typ',
+            'store'        => 'Shopware.apps.Emotion.store.FfuenfEmotionManufacturerHeaderType',
+            'queryMode'    => 'local',
+            'displayField' => 'name',
+            'valueField'   => 'name',
+            'defaultValue' => 'H1',
+            'allowBlank'   => false
+        ]);
+        $component->createTextField([
+            'name'        => 'subheader',
+            'fieldLabel'  => 'Unter-Überschrift',
+            'allowBlank'  => true
+        ]);
         $component->createNumberField([
             'name'        => 'category_id',
             'fieldLabel'  => 'Kategorie ID',

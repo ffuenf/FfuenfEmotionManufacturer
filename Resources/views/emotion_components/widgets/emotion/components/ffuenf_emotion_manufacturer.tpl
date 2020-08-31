@@ -29,6 +29,19 @@
         </ul>
     {/if}
     {if $Data.style == 2}
+        <div class="ffuenf-emotion-manufacturer-list-wrapper">
+            {if $Data.showHeader}
+                <div class="ffuenf-emotion-manufacturer-list-headline-wrapper">
+                    {if $Data.landingpageLink != ''}
+                        <{$Data.header_type|lower}><a class="menu--list-item-link" href="{$Data.landingpageLink}" title="{$Data.landingpageTitle}" itemprop="url" aria-label="{$Data.landingpageTitle}">{$Data.header}</a></{$Data.header_type|lower}>
+                    {else}
+                        <{$Data.header_type|lower}>{$Data.header}</{$Data.header_type|lower}>
+                    {/if}
+                    {if $Data.subheader != ''}
+                        <{$Data.subheader_type|lower} class="subheader">{$Data.subheader}</{$Data.subheader_type|lower}>
+                    {/if}
+                </div>
+            {/if}
         <ul class="manufacturer-list">
             {foreach $Data.manufacturers as $sManufacturer}
                 {if $sManufacturer.img}
@@ -36,6 +49,12 @@
                 {/if}
             {/foreach}
         </ul>
+            {if $Data.showHeader && $Data.landingpageLink != ''}
+                <a class="btn btn-primary manufacturer-list-btn" href="{$Data.landingpageLink}" title="{$Data.landingpageTitle}" itemprop="url" aria-label="{$Data.landingpageTitle}">
+                    <span itemprop="name">{$Data.landingpageTitle}</span>
+                </a>
+            {/if}
+        </div>
     {/if}
     {if $Data.style == 3}
         {if $Data.showHeader}
